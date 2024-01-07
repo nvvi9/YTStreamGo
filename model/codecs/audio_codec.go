@@ -1,10 +1,10 @@
 package codecs
 
-type AudioCodec int
+type AudioCodec string
 
 const (
-	MP3 AudioCodec = iota + 1
-	AAC
-	Vorbis
-	Opus
+	MP3    AudioCodec = "mp3"
+	AAC    AudioCodec = "aac"
+	Vorbis AudioCodec = "vorbis"
+	Opus   AudioCodec = "opus"
 )

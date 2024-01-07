@@ -12,10 +12,10 @@ type StreamingData struct {
 }
 
 type Format struct {
-	Itag            int    `json:"itag"`
-	SignatureCipher string `json:"signatureCipher"`
-	Type            string `json:"type"`
-	Url             string `json:"url"`
+	Itag            int     `json:"itag"`
+	SignatureCipher *string `json:"signatureCipher"`
+	Type            string  `json:"type"`
+	Url             *string `json:"url"`
 }
 
 type VideoDetails struct {

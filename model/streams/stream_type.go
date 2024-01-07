@@ -1,10 +1,10 @@
 package streams
 
-type StreamType int
+type StreamType string
 
 const (
-	Video StreamType = iota + 1
-	Audio
-	Live
-	Multiplexed
+	Video       StreamType = "video"
+	Audio       StreamType = "audio"
+	Live        StreamType = "live"
+	Multiplexed StreamType = "multiplexed"
 )

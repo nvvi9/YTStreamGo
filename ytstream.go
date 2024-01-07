@@ -10,52 +10,52 @@ import (
 	"github.com/nvvi9/YTStreamGo/utils"
 )
 
-func ExtractVideoData(videoId string) (model.VideoData, error) {
+func ExtractVideoData(videoId string) (*model.VideoData, error) {
 	pageHtml, err := network.GetVideoPage(videoId)
 	if err != nil {
-		return model.VideoData{}, err
+		return nil, err
 	}
 
 	match := utils.PatternPlayerResponse.FindStringSubmatch(pageHtml)
 	if match == nil {
-		return model.VideoData{}, fmt.Errorf("error parsing player response")
+		return nil, fmt.Errorf("error parsing player response")
 	}
 
 	playerResponse := match[1]
 
-	var initialPlayerResponse = youtube.InitialPlayerResponse{}
+	initialPlayerResponse := new(youtube.InitialPlayerResponse)
 
-	if err := json.Unmarshal([]byte(playerResponse), &initialPlayerResponse); err != nil {
-		return model.VideoData{}, err
+	if err := json.Unmarshal([]byte(playerResponse), initialPlayerResponse); err != nil {
+		return nil, err
 	}
 
 	videoDetails := model.VideoDetailsFromInitialPlayerResponse(initialPlayerResponse)
 
-	streams := extractor.ExtractStreams(pageHtml, initialPlayerResponse.StreamingData)
+	streams := extractor.ExtractStreams(&pageHtml, &initialPlayerResponse.StreamingData)
 
-	return model.VideoData{
-		VideoDetails: videoDetails,
-		Streams:      streams,
-	}, nil
+	videoData := new(model.VideoData)
+	videoData.VideoDetails = *videoDetails
+	videoData.Streams = streams
+	return videoData, nil
 }
 
-func ExtractVideoDetails(videoId string) (model.VideoDetails, error) {
+func ExtractVideoDetails(videoId string) (*model.VideoDetails, error) {
 	pageHtml, err := network.GetVideoPage(videoId)
 	if err != nil {
-		return model.VideoDetails{}, err
+		return nil, err
 	}
 
 	match := utils.PatternPlayerResponse.FindStringSubmatch(pageHtml)
 	if match == nil {
-		return model.VideoDetails{}, fmt.Errorf("error parsing player response")
+		return nil, fmt.Errorf("error parsing player response")
 	}
 
 	playerResponse := match[1]
 
-	var initialPlayerResponse = youtube.InitialPlayerResponse{}
+	initialPlayerResponse := new(youtube.InitialPlayerResponse)
 
 	if err := json.Unmarshal([]byte(playerResponse), &initialPlayerResponse); err != nil {
-		return model.VideoDetails{}, err
+		return nil, err
 	}
 
 	return model.VideoDetailsFromInitialPlayerResponse(initialPlayerResponse), nil

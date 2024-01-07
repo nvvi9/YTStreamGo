@@ -16,51 +16,51 @@ import (
 )
 
 var itags = map[int]streams.StreamDetails{
-	140: {140, streams.Audio, streams.M4A, codecs.AAC, 0, 0, 128, 0},
-	141: {141, streams.Audio, streams.M4A, codecs.AAC, 0, 0, 256, 0},
-	256: {256, streams.Audio, streams.M4A, codecs.AAC, 0, 0, 192, 0},
-	258: {258, streams.Audio, streams.M4A, codecs.AAC, 0, 0, 384, 0},
-	171: {171, streams.Audio, streams.WebM, codecs.Vorbis, 0, 0, 128, 0},
-	249: {249, streams.Audio, streams.WebM, codecs.Opus, 0, 0, 48, 0},
-	250: {250, streams.Audio, streams.WebM, codecs.Opus, 0, 0, 64, 0},
-	251: {251, streams.Audio, streams.WebM, codecs.Opus, 0, 0, 160, 0},
+	140: {Itag: 140, Type: streams.Audio, Extension: streams.M4A, AudioCodec: codecs.AAC, VideoCodec: "", Quality: 0, Bitrate: 128, Fps: 0},
+	141: {Itag: 141, Type: streams.Audio, Extension: streams.M4A, AudioCodec: codecs.AAC, VideoCodec: "", Quality: 0, Bitrate: 256, Fps: 0},
+	256: {Itag: 256, Type: streams.Audio, Extension: streams.M4A, AudioCodec: codecs.AAC, VideoCodec: "", Quality: 0, Bitrate: 192, Fps: 0},
+	258: {Itag: 258, Type: streams.Audio, Extension: streams.M4A, AudioCodec: codecs.AAC, VideoCodec: "", Quality: 0, Bitrate: 384, Fps: 0},
+	171: {Itag: 171, Type: streams.Audio, Extension: streams.WebM, AudioCodec: codecs.Vorbis, VideoCodec: "", Quality: 0, Bitrate: 128, Fps: 0},
+	249: {Itag: 249, Type: streams.Audio, Extension: streams.WebM, AudioCodec: codecs.Opus, VideoCodec: "", Quality: 0, Bitrate: 48, Fps: 0},
+	250: {Itag: 250, Type: streams.Audio, Extension: streams.WebM, AudioCodec: codecs.Opus, VideoCodec: "", Quality: 0, Bitrate: 64, Fps: 0},
+	251: {Itag: 251, Type: streams.Audio, Extension: streams.WebM, AudioCodec: codecs.Opus, VideoCodec: "", Quality: 0, Bitrate: 160, Fps: 0},
 
-	160: {160, streams.Video, streams.MP4, 0, codecs.H264, 144, 0, 0},
-	133: {133, streams.Video, streams.MP4, 0, codecs.H264, 240, 0, 0},
-	134: {134, streams.Video, streams.MP4, 0, codecs.H264, 360, 0, 0},
-	135: {135, streams.Video, streams.MP4, 0, codecs.H264, 480, 0, 0},
-	136: {136, streams.Video, streams.MP4, 0, codecs.H264, 720, 0, 0},
-	137: {137, streams.Video, streams.MP4, 0, codecs.H264, 1080, 0, 0},
-	264: {264, streams.Video, streams.MP4, 0, codecs.H264, 1440, 0, 0},
-	266: {266, streams.Video, streams.MP4, 0, codecs.H264, 2160, 0, 0},
-	298: {298, streams.Video, streams.MP4, 0, codecs.H264, 720, 0, 60},
-	299: {299, streams.Video, streams.MP4, 0, codecs.H264, 1080, 0, 60},
-	278: {278, streams.Video, streams.WebM, 0, codecs.VP9, 144, 0, 0},
-	242: {242, streams.Video, streams.WebM, 0, codecs.VP9, 240, 0, 0},
-	243: {243, streams.Video, streams.WebM, 0, codecs.VP9, 360, 0, 0},
-	244: {244, streams.Video, streams.WebM, 0, codecs.VP9, 480, 0, 0},
-	247: {247, streams.Video, streams.WebM, 0, codecs.VP9, 720, 0, 0},
-	248: {248, streams.Video, streams.WebM, 0, codecs.VP9, 1080, 0, 0},
-	271: {271, streams.Video, streams.WebM, 0, codecs.VP9, 1440, 0, 0},
-	313: {313, streams.Video, streams.WebM, 0, codecs.VP9, 2160, 0, 0},
-	302: {302, streams.Video, streams.WebM, 0, codecs.VP9, 720, 0, 60},
-	308: {308, streams.Video, streams.WebM, 0, codecs.VP9, 1440, 0, 60},
-	303: {303, streams.Video, streams.WebM, 0, codecs.VP9, 1080, 0, 60},
-	315: {315, streams.Video, streams.WebM, 0, codecs.VP9, 2160, 0, 60},
+	160: {Itag: 160, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 144, Bitrate: 0, Fps: 0},
+	133: {Itag: 133, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 240, Bitrate: 0, Fps: 0},
+	134: {Itag: 134, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 360, Bitrate: 0, Fps: 0},
+	135: {Itag: 135, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 480, Bitrate: 0, Fps: 0},
+	136: {Itag: 136, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 720, Bitrate: 0, Fps: 0},
+	137: {Itag: 137, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 1080, Bitrate: 0, Fps: 0},
+	264: {Itag: 264, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 1440, Bitrate: 0, Fps: 0},
+	266: {Itag: 266, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 2160, Bitrate: 0, Fps: 0},
+	298: {Itag: 298, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 720, Bitrate: 0, Fps: 60},
+	299: {Itag: 299, Type: streams.Video, Extension: streams.MP4, AudioCodec: "", VideoCodec: codecs.H264, Quality: 1080, Bitrate: 0, Fps: 60},
+	278: {Itag: 278, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 144, Bitrate: 0, Fps: 0},
+	242: {Itag: 242, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 240, Bitrate: 0, Fps: 0},
+	243: {Itag: 243, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 360, Bitrate: 0, Fps: 0},
+	244: {Itag: 244, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 480, Bitrate: 0, Fps: 0},
+	247: {Itag: 247, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 720, Bitrate: 0, Fps: 0},
+	248: {Itag: 248, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 1080, Bitrate: 0, Fps: 0},
+	271: {Itag: 271, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 1440, Bitrate: 0, Fps: 0},
+	313: {Itag: 313, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 2160, Bitrate: 0, Fps: 0},
+	302: {Itag: 302, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 720, Bitrate: 0, Fps: 60},
+	308: {Itag: 308, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 1440, Bitrate: 0, Fps: 60},
+	303: {Itag: 303, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 1080, Bitrate: 0, Fps: 60},
+	315: {Itag: 315, Type: streams.Video, Extension: streams.WebM, AudioCodec: "", VideoCodec: codecs.VP9, Quality: 2160, Bitrate: 0, Fps: 60},
 
-	17: {17, streams.Multiplexed, streams.ThreeGP, codecs.AAC, codecs.MPEG4, 144, 24, 0},
-	36: {36, streams.Multiplexed, streams.ThreeGP, codecs.AAC, codecs.MPEG4, 240, 32, 0},
-	5:  {5, streams.Multiplexed, streams.FLV, codecs.MP3, codecs.H263, 144, 64, 0},
-	43: {43, streams.Multiplexed, streams.WebM, codecs.Vorbis, codecs.VP8, 360, 128, 0},
-	18: {18, streams.Multiplexed, streams.MP4, codecs.AAC, codecs.H264, 360, 96, 0},
-	22: {22, streams.Multiplexed, streams.MP4, codecs.AAC, codecs.H264, 720, 192, 0},
+	17: {Itag: 17, Type: streams.Multiplexed, Extension: streams.ThreeGP, AudioCodec: codecs.AAC, VideoCodec: codecs.MPEG4, Quality: 144, Bitrate: 24, Fps: 0},
+	36: {Itag: 36, Type: streams.Multiplexed, Extension: streams.ThreeGP, AudioCodec: codecs.AAC, VideoCodec: codecs.MPEG4, Quality: 240, Bitrate: 32, Fps: 0},
+	5:  {Itag: 5, Type: streams.Multiplexed, Extension: streams.FLV, AudioCodec: codecs.MP3, VideoCodec: codecs.H263, Quality: 144, Bitrate: 64, Fps: 0},
+	43: {Itag: 43, Type: streams.Multiplexed, Extension: streams.WebM, AudioCodec: codecs.Vorbis, VideoCodec: codecs.VP8, Quality: 360, Bitrate: 128, Fps: 0},
+	18: {Itag: 18, Type: streams.Multiplexed, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 360, Bitrate: 96, Fps: 0},
+	22: {Itag: 22, Type: streams.Multiplexed, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 720, Bitrate: 192, Fps: 0},
 
-	91: {91, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 144, 48, 0},
-	92: {92, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 240, 48, 0},
-	93: {93, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 360, 128, 0},
-	94: {94, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 480, 128, 0},
-	95: {95, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 720, 256, 0},
-	96: {96, streams.Live, streams.MP4, codecs.AAC, codecs.H264, 1080, 256, 0},
+	91: {Itag: 91, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 144, Bitrate: 48, Fps: 0},
+	92: {Itag: 92, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 240, Bitrate: 48, Fps: 0},
+	93: {Itag: 93, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 360, Bitrate: 128, Fps: 0},
+	94: {Itag: 94, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 480, Bitrate: 128, Fps: 0},
+	95: {Itag: 95, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 720, Bitrate: 256, Fps: 0},
+	96: {Itag: 96, Type: streams.Live, Extension: streams.MP4, AudioCodec: codecs.AAC, VideoCodec: codecs.H264, Quality: 1080, Bitrate: 256, Fps: 0},
 }
 
 type encodedSignature struct {
@@ -69,61 +69,69 @@ type encodedSignature struct {
 	StreamDetails streams.StreamDetails
 }
 
-func ExtractStreams(pageHtml string, streamingData youtube.StreamingData) []streams.Stream {
-	notEncodedStreams := extractNotEncodedStreams(streamingData)
+func ExtractStreams(pageHtml *string, streamingData *youtube.StreamingData) []streams.Stream {
+	var streams []streams.Stream
 
-	encodedStreams, err := extractEncodedStreams(pageHtml, streamingData)
-	if err != nil {
-		return notEncodedStreams
+	if notEncodedStreams, _ := extractNotEncodedStreams(streamingData); notEncodedStreams != nil {
+		streams = append(streams, notEncodedStreams...)
 	}
 
-	return append(notEncodedStreams, encodedStreams...)
+	if encodedStreams, _ := extractEncodedStreams(pageHtml, streamingData); encodedStreams != nil {
+		streams = append(streams, encodedStreams...)
+	}
+
+	return streams
 }
 
-func extractNotEncodedStreams(streamingData youtube.StreamingData) []streams.Stream {
-	var result []streams.Stream
-	expiresInSeconds, err := strconv.ParseInt(streamingData.ExpiresInSeconds, 10, 64)
-	if err != nil {
-		return result
-	}
-
-	formats := append(streamingData.Formats, streamingData.AdaptiveFormats...)
-
-	for _, format := range formats {
-		streamUrl := format.Url
-		if streamUrl != "" && format.Type != "FORMAT_STREAM_TYPE_OTF" {
-			itag := format.Itag
-			streamDetails, ok := itags[itag]
-			if ok {
-				streamUrl = strings.ReplaceAll(streamUrl, "\\u0026", "&")
-				result = append(result, streams.Stream{
-					Url:              streamUrl,
-					StreamDetails:    streamDetails,
-					ExpiresInSeconds: expiresInSeconds,
-				})
-			}
-		}
-	}
-
-	return result
-}
-
-func extractEncodedStreams(pageHtml string, streamingData youtube.StreamingData) ([]streams.Stream, error) {
+func extractNotEncodedStreams(streamingData *youtube.StreamingData) ([]streams.Stream, error) {
 	expiresInSeconds, err := strconv.ParseInt(streamingData.ExpiresInSeconds, 10, 64)
 	if err != nil {
 		return nil, err
 	}
 
+	var result []streams.Stream
 	formats := append(streamingData.Formats, streamingData.AdaptiveFormats...)
 
-	encodedSignatures := getEncodedSignatures(utils.Filter(formats, func(f youtube.Format) bool {
-		return f.Type != "FORMAT_STREAM_TYPE_OTF"
-	}))
+	for _, format := range formats {
+		if format.Type != "FORMAT_STREAM_TYPE_OTF" {
+			if formatStreamUrl := format.Url; formatStreamUrl != nil {
+				itag := format.Itag
+				streamDetails, ok := itags[itag]
+				if ok {
+					streamUrl := strings.ReplaceAll(*formatStreamUrl, "\\u0026", "&")
+					stream := streams.Stream{
+						Url:              streamUrl,
+						StreamDetails:    streamDetails,
+						ExpiresInSeconds: expiresInSeconds,
+					}
+					result = append(result, stream)
+				}
+			}
+		}
+	}
+
+	return result, nil
+}
+
+func extractEncodedStreams(pageHtml *string, streamingData *youtube.StreamingData) ([]streams.Stream, error) {
+	expiresInSeconds, err := strconv.ParseInt(streamingData.ExpiresInSeconds, 10, 64)
+	if err != nil {
+		return nil, err
+	}
+
+	var formats []youtube.Format
+	for _, f := range append(streamingData.Formats, streamingData.AdaptiveFormats...) {
+		if f.Type != "FORMAT_STREAM_TYPE_OTF" {
+			formats = append(formats, f)
+		}
+	}
+
+	encodedSignatures := getEncodedSignatures(formats)
 
 	if len(encodedSignatures) > 0 {
-		matches := utils.PatternDecryptionJsFile.FindStringSubmatch(pageHtml)
+		matches := utils.PatternDecryptionJsFile.FindStringSubmatch(*pageHtml)
 		if matches == nil {
-			matches = utils.PatternDecryptionJsFileWithoutSlash.FindStringSubmatch(pageHtml)
+			matches = utils.PatternDecryptionJsFileWithoutSlash.FindStringSubmatch(*pageHtml)
 		}
 		if matches == nil {
 			return nil, fmt.Errorf("error parsing js file")
@@ -135,16 +143,17 @@ func extractEncodedStreams(pageHtml string, streamingData youtube.StreamingData)
 		if err != nil {
 			return nil, err
 		}
-		signatures := strings.Split(signature, "\n")
+		signatures := strings.Split(*signature, "\n")
 
-		var result []streams.Stream
+		result := make([]streams.Stream, 0, len(encodedSignatures))
 		for i, encSignature := range encodedSignatures {
 			sig := signatures[i]
-			result = append(result, streams.Stream{
+			stream := streams.Stream{
 				Url:              fmt.Sprintf("%s&sig=%s", encSignature.Url, sig),
 				StreamDetails:    encSignature.StreamDetails,
 				ExpiresInSeconds: expiresInSeconds,
-			})
+			}
+			result = append(result, stream)
 		}
 
 		return result, nil
@@ -153,15 +162,15 @@ func extractEncodedStreams(pageHtml string, streamingData youtube.StreamingData)
 	}
 }
 
-func decipherSignature(encSignatures []encodedSignature, decipherJsFileName string) (string, error) {
+func decipherSignature(encSignatures []*encodedSignature, decipherJsFileName string) (*string, error) {
 	javaScriptFile, err := network.GetJsFile(decipherJsFileName)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	signatureDecFunctionMatches := utils.PatternSignatureDecFunction.FindStringSubmatch(javaScriptFile)
 	if signatureDecFunctionMatches == nil {
-		return "", fmt.Errorf("error parsing signatureDecFunction")
+		return nil, fmt.Errorf("error parsing signatureDecFunction")
 	}
 
 	decipherFunctionName := signatureDecFunctionMatches[1]
@@ -171,7 +180,7 @@ func decipherSignature(encSignatures []encodedSignature, decipherJsFileName stri
 		`(=function\((.{1,3})\)\{)`)
 
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	var mainDecipherFunct string
@@ -184,13 +193,13 @@ func decipherSignature(encSignatures []encodedSignature, decipherJsFileName stri
 			regexp.QuoteMeta(decipherFunctionName) +
 			`(\((.{1,3})\)\{)`)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 
 		mainDecipherFunctionMatches = patternMainFunction.FindStringSubmatchIndex(javaScriptFile)
 
 		if mainDecipherFunctionMatches == nil {
-			return "", fmt.Errorf("main js function not found")
+			return nil, fmt.Errorf("main js function not found")
 		}
 
 		mainDecipherFunct = "function " + decipherFunctionName + javaScriptFile[mainDecipherFunctionMatches[4]:mainDecipherFunct[5]]
@@ -269,12 +278,15 @@ func decipherSignature(encSignatures []encodedSignature, decipherJsFileName stri
 		}
 	}
 
-	return decipherEncodedSignatures(utils.Map(encSignatures, func(s encodedSignature) string {
-		return s.Signature
-	}), decipherFunctions, decipherFunctionName)
+	signatures := make([]string, 0, len(encSignatures))
+	for _, encSignature := range encSignatures {
+		signatures = append(signatures, encSignature.Signature)
+	}
+
+	return decipherEncodedSignatures(signatures, decipherFunctions, decipherFunctionName)
 }
 
-func decipherEncodedSignatures(encSignatures []string, decipherFunctions string, decipherFunctionName string) (string, error) {
+func decipherEncodedSignatures(encSignatures []string, decipherFunctions string, decipherFunctionName string) (*string, error) {
 	var buffer bytes.Buffer
 	buffer.WriteString(fmt.Sprintf("%s function decipher(){return ", decipherFunctions))
 
@@ -293,14 +305,14 @@ func decipherEncodedSignatures(encSignatures []string, decipherFunctions string,
 	return js.ExecuteScript(script)
 }
 
-func getEncodedSignatures(formats []youtube.Format) []encodedSignature {
-	var encodedSignatures []encodedSignature
+func getEncodedSignatures(formats []youtube.Format) []*encodedSignature {
+	var encodedSignatures []*encodedSignature
 
 	for _, format := range formats {
 		streamDetails, ok := itags[format.Itag]
-		if ok && format.SignatureCipher != "" {
-			sigEncUrlMatches := utils.PatternSigEncUrl.FindStringSubmatch(format.SignatureCipher)
-			signatureMatches := utils.PatternSignature.FindStringSubmatch(format.SignatureCipher)
+		if ok && format.SignatureCipher != nil {
+			sigEncUrlMatches := utils.PatternSigEncUrl.FindStringSubmatch(*format.SignatureCipher)
+			signatureMatches := utils.PatternSignature.FindStringSubmatch(*format.SignatureCipher)
 
 			if sigEncUrlMatches == nil || signatureMatches == nil {
 				continue
@@ -316,7 +328,12 @@ func getEncodedSignatures(formats []youtube.Format) []encodedSignature {
 				continue
 			}
 
-			encodedSignatures = append(encodedSignatures, encodedSignature{signatureUrl, signature, streamDetails})
+			encSignature := new(encodedSignature)
+			encSignature.Url = signatureUrl
+			encSignature.Signature = signature
+			encSignature.StreamDetails = streamDetails
+
+			encodedSignatures = append(encodedSignatures, encSignature)
 		}
 	}
 

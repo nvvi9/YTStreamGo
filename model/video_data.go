@@ -3,7 +3,6 @@ package model
 import (
 	"github.com/nvvi9/YTStreamGo/model/streams"
 	"github.com/nvvi9/YTStreamGo/model/youtube"
-	"github.com/nvvi9/YTStreamGo/utils"
 	"strconv"
 )
 
@@ -30,7 +29,7 @@ type Thumbnail struct {
 	Url    string
 }
 
-func VideoDetailsFromInitialPlayerResponse(response youtube.InitialPlayerResponse) VideoDetails {
+func VideoDetailsFromInitialPlayerResponse(response *youtube.InitialPlayerResponse) *VideoDetails {
 	durationSeconds, err := strconv.ParseInt(response.VideoDetails.LengthSeconds, 10, 64)
 	if err != nil {
 		durationSeconds = 0
@@ -41,23 +40,26 @@ func VideoDetailsFromInitialPlayerResponse(response youtube.InitialPlayerRespons
 		viewCount = 0
 	}
 
-	thumbnails := utils.Map(response.VideoDetails.Thumbnail.Thumbnails, func(t youtube.Thumbnail) Thumbnail {
-		return Thumbnail{
-			Width:  t.Width,
+	thumbnails := make([]Thumbnail, 0, len(response.VideoDetails.Thumbnail.Thumbnails))
+	for _, t := range response.VideoDetails.Thumbnail.Thumbnails {
+		thumbnail := Thumbnail{
 			Height: t.Height,
+			Width:  t.Width,
 			Url:    t.Url,
 		}
-	})
-
-	return VideoDetails{
-		Id:              response.VideoDetails.VideoId,
-		Title:           response.VideoDetails.Title,
-		Channel:         response.VideoDetails.Author,
-		ChannelId:       response.VideoDetails.ChannelId,
-		Description:     response.VideoDetails.ShortDescription,
-		DurationSeconds: durationSeconds,
-		ViewCount:       viewCount,
-		Thumbnails:      thumbnails,
-		IsLiveStream:    false,
+		thumbnails = append(thumbnails, thumbnail)
 	}
+
+	videoDetails := new(VideoDetails)
+	videoDetails.Id = response.VideoDetails.VideoId
+	videoDetails.Title = response.VideoDetails.Title
+	videoDetails.Channel = response.VideoDetails.Author
+	videoDetails.ChannelId = response.VideoDetails.ChannelId
+	videoDetails.Description = response.VideoDetails.ShortDescription
+	videoDetails.DurationSeconds = durationSeconds
+	videoDetails.ViewCount = viewCount
+	videoDetails.Thumbnails = thumbnails
+	videoDetails.IsLiveStream = false
+
+	return videoDetails
 }
